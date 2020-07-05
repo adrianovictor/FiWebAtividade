@@ -1,16 +1,13 @@
-﻿namespace FI.AtividadeEntrevista.DML
+﻿using FI.AtividadeEntrevista.DML.Common;
+
+namespace FI.AtividadeEntrevista.DML
 {
     /// <summary>
     /// Classe de cliente que representa o registo na tabela Cliente do Banco de Dados
     /// </summary>
-    public class Cliente
+    public class Cliente : Entidade<Cliente>
     {
-        #region Properties
-        /// <summary>
-        /// Id
-        /// </summary>
-        public long Id { get; set; }
-        
+        #region Properties        
         /// <summary>
         /// CEP
         /// </summary>

@@ -22,5 +22,10 @@ namespace FI.AtividadeEntrevista.Web.Results
         /// Indica se gerou algum erro
         /// </summary>
         bool HasError { get; }
+
+        /// <summary>
+        /// Contém os dados resultantes de uma operação
+        /// </summary>
+        dynamic Data { get; }
     }
 }

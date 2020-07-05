@@ -9,6 +9,7 @@
         public int ErrorCode { get; protected set; }
         public string ErrorMessage { get; protected set; }
         public bool HasError { get; protected set; }
+        public dynamic Data { get; protected set; }
         #endregion
 
         #region Public Methods
