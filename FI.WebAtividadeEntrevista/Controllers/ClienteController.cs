@@ -59,7 +59,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Response.StatusCode = bo.ErrorCode;
                     return Json(bo.ErrorMessage);
                 }
-                else return Json("Cadastro efetuado com sucesso");
+                else return Json(new { Message = "Cadastro efetuado com sucesso", id = model.Id });
             }
         }
         #endregion

@@ -1,8 +1,6 @@
-﻿
-$(document).ready(function () {    
-    $('#CPF').mask('000.000.000-00');
-    $('#Telefone').mask('(11) 0000-0000');
-    $('#CEP').mask('00000-000');
+﻿var recipients = [];
+
+$(document).ready(function () {        
 
     $('#formCadastro').submit(function (e) {
         e.preventDefault();
@@ -21,8 +19,7 @@ $(document).ready(function () {
                 "Telefone": $(this).find("#Telefone").val(),
                 "CPF": $(this).find("#CPF").val()
             },
-            error:
-            function (r) {
+            error: function (r) {
                 if (r.status == 400)
                     ModalDialog("Ocorreu um erro", r.responseJSON);
                 else if (r.status == 404)
@@ -30,15 +27,19 @@ $(document).ready(function () {
                 else if (r.status == 500)
                     ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
             },
-            success:
-            function (r) {
-                ModalDialog("Sucesso!", r)
+            success: function (r) {
+                console.log(r);
+                ModalDialog("Sucesso!", r.message);
                 $("#formCadastro")[0].reset();
             }
         });
     })
     
 })
+
+function registerRecipients(clientId) {
+
+}
 
 function ModalDialog(titulo, texto) {
     var random = Math.random().toString().replace('.', '');
@@ -62,4 +63,20 @@ function ModalDialog(titulo, texto) {
 
     $('body').append(texto);
     $('#' + random).modal('show');
+}
+
+function OpenRecipientModal() {
+    $('#recipientModal').modal('show');
+}
+
+function AddRecipient() {
+    const model = {
+        nome: $('#Name').val(),
+        cpf: $('#Document').val()
+    };
+
+    recipients.push(model);
+
+    var table = $('#tableBody').append(`<tr><td>${model.cpf}</td><td>${model.nome}</td></tr>`);
+    console.log(recipients);
 }

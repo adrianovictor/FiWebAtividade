@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FI.AtividadeEntrevista.DAL.Beneficiarios.Handlers
 {
-    public class AtualizarBeneficiarioDao
+    internal class AtualizarBeneficiarioDao : AcessoDados
     {
         public DataResult Hander(AlterarBeneficiarioCommand command)
         {
